@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نماذج وثائق الزواج</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Cairo',sans-serif;
+            background:linear-gradient(135deg,#f4f7fb,#dce9f8);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:#fff;
+            padding:50px;
+            border-radius:18px;
+            box-shadow:0 12px 30px rgba(0,0,0,.15);
+            text-align:center;
+            width:90%;
+            max-width:600px;
+        }
+
+        h1{
+            color:#0b4f8a;
+            margin-bottom:40px;
+            font-size:32px;
+        }
+
+        .buttons{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        .btn{
+            display:block;
+            text-decoration:none;
+            background:#0b6db7;
+            color:#fff;
+            padding:18px;
+            border-radius:10px;
+            font-size:22px;
+            font-weight:bold;
+            transition:.3s;
+            box-shadow:0 6px 15px rgba(0,0,0,.15);
+        }
+
+        .btn:hover{
+            background:#084d81;
+            transform:translateY(-3px);
+        }
+
+        .btn:active{
+            transform:scale(.98);
+        }
+
+        @media (max-width:600px){
+
+            .container{
+                padding:30px;
+            }
+
+            h1{
+                font-size:26px;
+            }
+
+            .btn{
+                font-size:18px;
+                padding:15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>اختر نموذج وثيقة الزواج</h1>
+
+    <div class="buttons">
+
+        <a href="page1.html" class="btn">
+            نموذج رقم 1 لوثيقة الزواج
+        </a>
+
+        <a href="page2.html" class="btn">
+            نموذج لوثيقة الزواج رقم 2
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

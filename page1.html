@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Marriage Certificate - Kingdom of Bahrain</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            color: #2d3748;
+            margin: 0;
+            padding: 50px 20px;
+            -webkit-print-color-adjust: exact;
+        }
+        
+        .certificate-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* خط جمالي علوي رسمي يعبر عن الهوية الملكية */
+        .certificate-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ad8b56, #d4af37, #ad8b56);
+        }
+
+        /* الهيدر العلوي للوزارة */
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        .header-table td {
+            vertical-align: middle;
+            width: 33.33%;
+        }
+        .header-left {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        .header-center {
+            text-align: center;
+        }
+        .header-center .emblem-placeholder {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 8px;
+            background-color: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #a0aec0;
+        }
+        .header-right {
+            text-align: right;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1a202c;
+        }
+
+        /* عنوان المعاملة مع فاصل ملكي */
+        .title-section {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        .title-section h1 {
+            font-size: 26px;
+            color: #8c6d31;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .title-section h1.ar {
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 4px;
+        }
+        .title-divider {
+            width: 120px;
+            height: 2px;
+            background: #e2d8c2;
+            margin: 15px auto 0;
+            position: relative;
+        }
+        .title-divider::after {
+            content: "◆";
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 0 8px;
+            color: #ad8b56;
+            font-size: 11px;
+        }
+
+        /* لوحة معلومات العقد العلوية الرقم والجهة */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: #fcfbfa;
+            border: 1px solid #f0e9dc;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 35px;
+        }
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+        }
+        .meta-item.ar-row {
+            direction: rtl;
+            font-family: 'Cairo', sans-serif;
+        }
+        .meta-label {
+            color: #718096;
+            font-weight: 500;
+        }
+        .meta-val {
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        /* كتل بيانات الأطراف (الزوج، الزوجة، الولي) */
+        .section-block {
+            margin-bottom: 30px;
+            border: 1px solid #edf2f7;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+            overflow: hidden;
+        }
+        .section-header {
+            background: linear-gradient(90deg, #fbf9f5, #f5edd9);
+            padding: 12px 20px;
+            border-bottom: 1px solid #f0e9dc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-header .en {
+            font-size: 15px;
+            font-weight: 600;
+            color: #8c6d31;
+        }
+        .section-header .ar {
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #8c6d31;
+        }
+
+        /* صفوف المعلومات الفليكس */
+        .info-row {
+            display: flex;
+            border-bottom: 1px solid #edf2f7;
+            align-items: center;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label-en {
+            width: 22%;
+            padding: 14px 20px;
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            background-color: #fafbfc;
+        }
+        .info-value {
+            width: 56%;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .info-label-ar {
+            width: 22%;
+            padding: 14px 20px;
+            font-size: 14px;
+            color: #718096;
+            text-align: right;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            background-color: #fafbfc;
+        }
+
+        /* قسم التواقيع الإلكترونية الرقمية المؤتمتة */
+        .signatures-container {
+            margin-top: 35px;
+        }
+        .signatures-title {
+            font-size: 14px;
+            color: #718096;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .sig-card {
+            background: #fafbfc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            position: relative;
+            direction: rtl;
+            font-family: 'Cairo', sans-serif;
+        }
+        .sig-card::before {
+            content: "✓";
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #38a169;
+            font-size: 14px;
+            background: #e6fffa;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sig-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+        .sig-role {
+            font-size: 13px;
+            color: #ad8b56;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .sig-timestamp {
+            font-size: 11px;
+            color: #a0aec0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ذيل الصفحة لتوثيق الرمز */
+        .footer-verification {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px dashed #cbd5e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-text {
+            width: 80%;
+        }
+        .footer-text p {
+            margin: 4px 0;
+            font-size: 12.5px;
+            color: #718096;
+            line-height: 1.5;
+        }
+        .footer-text p.ar {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            color: #4a5568;
+        }
+        .qr-placeholder {
+            width: 75px;
+            height: 75px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #a0aec0;
+            text-align: center;
+            background: #fff;
+            padding: 4px;
+        }
+
+        .ar { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body>
+
+<div class="certificate-container">
+    
+    <!-- الهيدر والترويسة -->
+    <table class="header-table">
+        <tr>
+            <td class="header-left">
+                KINGDOM OF BAHRAIN<br>
+                Ministry of Justice, Islamic Affairs and Waqf
+            </td>
+            <td class="header-center">
+                <!-- يمكنك استبدال هذا الديف بـ وسم img لوضع الشعار الحقيقي لاحقاً -->
+                <div class="emblem-placeholder">شعار الدولة</div>
+            </td>
+            <td class="header-right ar">
+                مملكة البحرين<br>
+                <strong>وزارة العدل والشؤون الإسلامية والأوقاف</strong>
+            </td>
+        </tr>
+    </table>
+
+    <!-- عنوان العقد المطور -->
+    <div class="title-section">
+        <h1 class="ar">وثيقة عقد الزواج</h1>
+        <h1>Marriage Certificate</h1>
+        <div class="title-divider"></div>
+    </div>
+
+    <!-- لوحة البيانات الأساسية للملف -->
+    <div class="meta-grid">
+        <div class="meta-item">
+            <span class="meta-label">Sunni Sector / الدائرة السنية</span>
+            <span class="meta-val" style="color: #38a169;">✓</span>
+        </div>
+        <div class="meta-item ar-row">
+            <span class="meta-label">رقم الوثيقة / Doc No.</span>
+            <span class="meta-val" style="font-family: 'Inter';">20267</span>
+        </div>
+        <div class="meta-item" style="grid-column: span 2; border-top: 1px dashed #edf2f7; padding-top: 10px; margin-top: 5px;">
+            <span class="meta-label">Date of Transaction / تاريخ المعاملة</span>
+            <span class="meta-val" style="font-family: 'Inter';">06/07/2026</span>
+        </div>
+    </div>
+
+    <!-- كرت بيانات الزوج -->
+    <div class="section-block">
+        <div class="section-header">
+            <span class="en">Husband's Details</span>
+            <span class="ar">بيانات الزوج</span>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Identity Number</div>
+            <div class="info-value" style="font-family: 'Inter'; letter-spacing: 0.5px;">930307623</div>
+            <div class="info-label-ar">الرقم الشخصي</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Full Name</div>
+            <div class="info-value">
+                <div style="font-size: 12px; color: #718096; margin-bottom: 2px;">AHMED ISA ALI JASIM ALBENJASIM</div>
+                <div class="ar" style="font-size: 15px; font-weight: 700; color: #1a202c;">احمد عيسى علي جاسم البنجاسم</div>
+            </div>
+            <div class="info-label-ar">الاسم الكامل</div>
+        </div>
+    </div>
+
+    <!-- كرت بيانات الزوجة -->
+    <div class="section-block">
+        <div class="section-header">
+            <span class="en">Wife's Details</span>
+            <span class="ar">بيانات الزوجة</span>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Identity Number</div>
+            <div class="info-value" style="font-family: 'Inter'; letter-spacing: 0.5px;">970303688</div>
+            <div class="info-label-ar">الرقم الشخصي</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Full Name</div>
+            <div class="info-value">
+                <div style="font-size: 12px; color: #718096; margin-bottom: 2px;">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
+                <div class="ar" style="font-size: 15px; font-weight: 700; color: #1a202c;">مريم وهيب محمد حسن حسين</div>
+            </div>
+            <div class="info-label-ar">الاسم الكامل</div>
+        </div>
+    </div>
+
+    <!-- كرت بيانات الولي -->
+    <div class="section-block">
+        <div class="section-header">
+            <span class="en">Guardian's Details</span>
+            <span class="ar">بيانات الولي</span>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Identity Number</div>
+            <div class="info-value" style="font-family: 'Inter'; letter-spacing: 0.5px;">650300033</div>
+            <div class="info-label-ar">الرقم الشخصي</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Full Name</div>
+            <div class="info-value">
+                <div style="font-size: 12px; color: #718096; margin-bottom: 2px;">WAHEEB MOHAMED HASAN HUSAIN</div>
+                <div class="ar" style="font-size: 15px; font-weight: 700; color: #1a202c;">وهيب محمد حسن حسين</div>
+            </div>
+            <div class="info-label-ar">الاسم الكامل</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label-en">Relationship</div>
+            <div class="info-value">
+                Father / <span class="ar" style="font-weight: 700;">أب</span>
+            </div>
+            <div class="info-label-ar">صلة القرابة</div>
+        </div>
+    </div>
+
+    <!-- شبكة التواقيع الرقمية المودرن -->
+    <div class="signatures-container">
+        <div class="signatures-title">
+            <span class="ar">تم التوقيع إلكترونياً وبشكل موثق بواسطة</span> &bull; ELECTRONICALLY SIGNED BY
+        </div>
+        
+        <div class="signatures-grid">
+            <div class="sig-card">
+                <div class="sig-name">الشيخ عمر بن دعيج بن عبدالله آل خليفه</div>
+                <div class="sig-role">المأذون الشرعي</div>
+                <div class="sig-timestamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-card">
+                <div class="sig-name">جنان جلال احمد ابراهيم عبيد</div>
+                <div class="sig-role">قاضي المحكمة</div>
+                <div class="sig-timestamp">06-07-2026 11:17</div>
+            </div>
+            <div class="sig-card">
+                <div class="sig-name">احمد عيسى علي جاسم البنجاسم</div>
+                <div class="sig-role">الزوج</div>
+                <div class="sig-timestamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-card">
+                <div class="sig-name">عيسى علي جاسم محمد البنجاسم</div>
+                <div class="sig-role">الشاهد الأول</div>
+                <div class="sig-timestamp">06-07-2026 10:54</div>
+            </div>
+            <div class="sig-card">
+                <div class="sig-name">وهيب محمد حسن حسين</div>
+                <div class="sig-role">الولي</div>
+                <div class="sig-timestamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-card">
+                <div class="sig-name">عيسى محمد عبدالله احمد</div>
+                <div class="sig-role">الشاهد الثاني</div>
+                <div class="sig-timestamp">06-07-2026 10:55</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة المطور مع مساحة الـ QR المخصصة للتأكيد الرقمي -->
+    <div class="footer-verification">
+        <div class="footer-text">
+            <p class="ar">يمكنك التحقق من صحة بيانات الوثيقة والتوقيع الإلكتروني بالمسح الضوئي لرمز QR.</p>
+            <p>Scan the QR code to verify the validity of the document data and digital signature.</p>
+        </div>
+        <div class="qr-placeholder">
+            QR CODE<br>الرمز الرقمي
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

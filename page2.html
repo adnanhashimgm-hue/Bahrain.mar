@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Marriage Certificate - Kingdom of Bahrain</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #f4f1ea;
+            color: #2b2b2b;
+            margin: 0;
+            padding: 60px 20px;
+            -webkit-print-color-adjust: exact;
+        }
+        
+        .certificate-container {
+            max-width: 880px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(141, 110, 71, 0.08);
+            border: 1px solid #dfd7ca;
+            position: relative;
+        }
+
+        /* Royal Double Border Frame */
+        .outer-frame {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            border: 1px solid #c5b497;
+            pointer-events: none;
+        }
+        .inner-frame {
+            position: absolute;
+            top: 24px;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            border: 2px solid #c5b497;
+            pointer-events: none;
+        }
+        .corner-accent {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #8c7653;
+            background-color: #fff;
+        }
+        .top-left { top: -9px; left: -9px; }
+        .top-right { top: -9px; right: -9px; }
+        .bottom-left { bottom: -9px; left: -9px; }
+        .bottom-right { bottom: -9px; right: -9px; }
+
+        /* Header Layout */
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 45px;
+            position: relative;
+            z-index: 2;
+        }
+        .header-table td {
+            vertical-align: middle;
+            width: 33.33%;
+        }
+        .header-left {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #555;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .header-center {
+            text-align: center;
+        }
+        .header-center .emblem-container {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto;
+            border: 1px solid #c5b497;
+            transform: rotate(45deg);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-center .emblem-text {
+            transform: rotate(-45deg);
+            font-size: 10px;
+            font-weight: bold;
+            color: #8c7653;
+        }
+        .header-right {
+            text-align: right;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #222;
+        }
+
+        /* Title Area */
+        .title-section {
+            text-align: center;
+            margin-bottom: 45px;
+            position: relative;
+            z-index: 2;
+        }
+        .title-section h1 {
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .title-section h1.ar {
+            font-family: 'Amiri', serif;
+            font-size: 34px;
+            color: #735d39;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .title-section h1.en {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: #8c7653;
+            font-weight: 500;
+        }
+        .crest-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            color: #c5b497;
+            font-size: 12px;
+        }
+        .crest-separator::before, .crest-separator::after {
+            content: "";
+            width: 80px;
+            height: 1px;
+            background-color: #dfd7ca;
+            margin: 0 15px;
+        }
+
+        /* Core File Metadata */
+        .metadata-strip {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #f0eae1;
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-size: 13px;
+            position: relative;
+            z-index: 2;
+        }
+        .meta-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-box.right {
+            align-items: flex-end;
+            text-align: right;
+        }
+        .meta-primary {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+        .meta-secondary {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* Clean Official Section Divider */
+        .data-section {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        .section-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #8c7653;
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+        }
+        .section-bar .en-title {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #8c7653;
+            letter-spacing: 0.5px;
+        }
+        .section-bar .ar-title {
+            font-family: 'Amiri', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #735d39;
+        }
+
+        /* Classic Minimal Data Rows */
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #f0eae1;
+            font-size: 14px;
+        }
+        .data-row:last-of-type {
+            border-bottom: none;
+        }
+        .label-cell-en {
+            width: 25%;
+            color: #666;
+            font-size: 12.5px;
+        }
+        .value-cell {
+            width: 50%;
+            text-align: center;
+            font-weight: 600;
+            color: #111;
+        }
+        .label-cell-ar {
+            width: 25%;
+            text-align: right;
+            color: #555;
+            font-family: 'Amiri', serif;
+            font-size: 16px;
+        }
+
+        /* Elegant Attestation / Signatures layout */
+        .attestation-block {
+            margin-top: 45px;
+            position: relative;
+            z-index: 2;
+        }
+        .attestation-heading {
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #8c7653;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .attestation-heading .ar-sub {
+            font-family: 'Amiri', serif;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 0;
+        }
+        .signatures-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+        .signature-token {
+            border: 1px solid #dfd7ca;
+            background: #fdfcfb;
+            padding: 15px 20px;
+            border-radius: 2px;
+            position: relative;
+        }
+        .signature-token::after {
+            content: "SECURE DIGITAL SIGNATURE";
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            font-size: 8px;
+            color: #cbd5e0;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
+        .token-title {
+            font-family: 'Amiri', serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #222;
+            text-align: right;
+            margin-bottom: 2px;
+        }
+        .token-subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 13px;
+            color: #8c7653;
+            text-align: right;
+            margin-bottom: 8px;
+        }
+        .token-meta {
+            font-size: 11px;
+            color: #777;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+            border-top: 1px solid #f5f1ea;
+            padding-top: 6px;
+        }
+
+        /* Footer Security Section */
+        .footer-security {
+            margin-top: 55px;
+            border-top: 1px solid #dfd7ca;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .security-text-box {
+            width: 82%;
+        }
+        .security-text-box p {
+            margin: 3px 0;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .security-text-box p.ar {
+            font-family: 'Amiri', serif;
+            font-size: 15px;
+            direction: rtl;
+            color: #444;
+        }
+        .seal-container {
+            width: 70px;
+            height: 70px;
+            border: 1px dashed #c5b497;
+            padding: 3px;
+            background: #fff;
+        }
+        .inner-seal {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #dfd7ca;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #999;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .ar { font-family: 'Amiri', serif; }
+    </style>
+</head>
+<body>
+
+<div class="certificate-container">
+    
+    <div class="outer-frame"></div>
+    <div class="inner-frame">
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent top-right"></div>
+        <div class="corner-accent bottom-left"></div>
+        <div class="corner-accent bottom-right"></div>
+    </div>
+
+    <table class="header-table">
+        <tr>
+            <td class="header-left">
+                KINGDOM OF BAHRAIN<br>
+                Ministry of Justice, Islamic Affairs and Waqf
+            </td>
+            <td class="header-center">
+                <div class="emblem-container">
+                    <div class="emblem-text">شعار الدولة</div>
+                </div>
+            </td>
+            <td class="header-right ar">
+                مملكة البحرين<br>
+                <strong>وزارة العدل والشؤون الإسلامية والأوقاف</strong>
+            </td>
+        </tr>
+    </table>
+
+    <div class="title-section">
+        <h1 class="ar">وثيقة عقد الزواج</h1>
+        <h1 class="en">Marriage Certificate</h1>
+        <div class="crest-separator">⚜</div>
+    </div>
+
+    <div class="metadata-strip">
+        <div class="meta-box">
+            <span class="meta-primary">Sunni Sector / الدائرة السنية</span>
+            <span class="meta-secondary">Official Record Status: Verified</span>
+        </div>
+        <div class="meta-box right">
+            <span class="meta-primary">Document No. ٢٠٢٦٧ / 20267</span>
+            <span class="meta-secondary">Date: 06/07/2026 / ٦-٧-٢٠٢٦</span>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <div class="section-bar">
+            <span class="en-title">Husband's Details</span>
+            <span class="ar-title">بيانات الزوج</span>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Identity Number</div>
+            <div class="value-cell" style="font-family: 'Inter'; letter-spacing: 0.5px;">930307623</div>
+            <div class="label-cell-ar">الرقم الشخصي / الهوية</div>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Full Name</div>
+            <div class="value-cell">
+                <div class="ar" style="font-size: 17px; font-weight: 700; color: #111; margin-bottom: 2px;">احمد عيسى علي جاسم البنجاسم</div>
+                <div style="font-size: 11.5px; color: #666; font-weight: 400;">AHMED ISA ALI JASIM ALBENJASIM</div>
+            </div>
+            <div class="label-cell-ar">الاسم الكامل</div>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <div class="section-bar">
+            <span class="en-title">Wife's Details</span>
+            <span class="ar-title">بيانات الزوجة</span>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Identity Number</div>
+            <div class="value-cell" style="font-family: 'Inter'; letter-spacing: 0.5px;">970303688</div>
+            <div class="label-cell-ar">الرقم الشخصي / الهوية</div>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Full Name</div>
+            <div class="value-cell">
+                <div class="ar" style="font-size: 17px; font-weight: 700; color: #111; margin-bottom: 2px;">مريم وهيب محمد حسن حسين</div>
+                <div style="font-size: 11.5px; color: #666; font-weight: 400;">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
+            </div>
+            <div class="label-cell-ar">الاسم الكامل</div>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <div class="section-bar">
+            <span class="en-title">Guardian's Details</span>
+            <span class="ar-title">بيانات الولي</span>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Identity Number</div>
+            <div class="value-cell" style="font-family: 'Inter'; letter-spacing: 0.5px;">650300033</div>
+            <div class="label-cell-ar">الرقم الشخصي / الهوية</div>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Full Name</div>
+            <div class="value-cell">
+                <div class="ar" style="font-size: 17px; font-weight: 700; color: #111; margin-bottom: 2px;">وهيب محمد حسن حسين</div>
+                <div style="font-size: 11.5px; color: #666; font-weight: 400;">WAHEEB MOHAMED HASAN HUSAIN</div>
+            </div>
+            <div class="label-cell-ar">الاسم الكامل</div>
+        </div>
+        <div class="data-row">
+            <div class="label-cell-en">Relationship</div>
+            <div class="value-cell">
+                Father / <span class="ar" style="font-weight: 700;">أب</span>
+            </div>
+            <div class="label-cell-ar">صلة القرابة</div>
+        </div>
+    </div>
+
+    <div class="attestation-block">
+        <div class="attestation-heading">
+            <span class="ar-sub">تم التوقيع والمصادقة الرقمية الرسمية بواسطة</span>
+            OFFICIALLY SIGNED AND DIGITALLY ATTESTED BY
+        </div>
+        
+        <div class="signatures-matrix">
+            <div class="signature-token">
+                <div class="token-title">الشيخ عمر بن دعيج بن عبدالله آل خليفه</div>
+                <div class="token-subtitle">المأذون الشرعي</div>
+                <div class="token-meta">Date: 06-07-2026 | 10:55</div>
+            </div>
+            <div class="signature-token">
+                <div class="token-title">جنان جلال احمد ابراهيم عبيد</div>
+                <div class="token-subtitle">قاضي المحكمة</div>
+                <div class="token-meta">Date: 06-07-2026 | 11:17</div>
+            </div>
+            <div class="signature-token">
+                <div class="token-title">احمد عيسى علي جاسم البنجاسم</div>
+                <div class="token-subtitle">الزوج</div>
+                <div class="token-meta">Date: 06-07-2026 | 10:55</div>
+            </div>
+            <div class="signature-token">
+                <div class="token-title">عيسى علي جاسم محمد البنجاسم</div>
+                <div class="token-subtitle">الشاهد الأول</div>
+                <div class="token-meta">Date: 06-07-2026 | 10:54</div>
+            </div>
+            <div class="signature-token">
+                <div class="token-title">وهيب محمد حسن حسين</div>
+                <div class="token-subtitle">الولي</div>
+                <div class="token-meta">Date: 06-07-2026 | 10:55</div>
+            </div>
+            <div class="signature-token">
+                <div class="token-title">عيسى محمد عبدالله احمد</div>
+                <div class="token-subtitle">الشاهد الثاني</div>
+                <div class="token-meta">Date: 06-07-2026 | 10:55</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-security">
+        <div class="security-text-box">
+            <p class="ar">إن هذه الوثيقة معتمدة وموقعة رقمياً؛ يمكنك التحقق من صحة وصلاحية كافة البيانات وعملية المصادقة بالمسح الضوئي لرمز الاستجابة السريع (QR).</p>
+            <p>This document is electronically authenticated. You may verify the validity of all record data and digital stamp trails by scanning the secure QR code dynamic link.</p>
+        </div>
+        <div class="seal-container">
+            <div class="inner-seal">
+                DIGITAL<br>VERIFICATION<br>SEAL
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
