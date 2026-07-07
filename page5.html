@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Certificate - Kingdom of Bahrain</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            margin: 0;
+            padding: 60px 20px;
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* حاوية الوثيقة التميمية الفاخرة */
+        .tamimi-document {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* الخلفية المائية الأمنية الفاخرة المتقاطعة */
+        .tamimi-document::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #ad8b56 24%, transparent 24%),
+                radial-gradient(circle at 0% -50%, #800020 18%, transparent 18%);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* الإطار الملكي المزدوج المذهب */
+        .royal-border-frame {
+            position: absolute;
+            inset: 20px;
+            border: 1px solid rgba(173, 139, 86, 0.3);
+            border-radius: 16px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .royal-border-frame::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border: 2px solid rgba(128, 0, 32, 0.15);
+            border-radius: 12px;
+        }
+
+        /* الهيدر المتوازن الجديد */
+        .premium-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+        .dept-title {
+            width: 35%;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #475569;
+        }
+        .dept-title.ar {
+            text-align: right;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            color: #0f172a;
+        }
+        .center-crest {
+            width: 20%;
+            text-align: center;
+        }
+        .center-crest img {
+            width: 85px;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(128,0,32,0.15));
+        }
+
+        /* عنوان العقد بنمط السير المذهب */
+        .main-hero-title {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+        .main-hero-title h2 {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            font-size: 34px;
+            font-weight: 900;
+            color: #800020; /* الأحمر العنابي البحريني الفاخر */
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .main-hero-title p {
+            margin: 4px 0 0 0;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            color: #ad8b56;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* شريط الحالة السحابي الرقمي المطور */
+        .cloud-status-strip {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+        }
+        .strip-node {
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .strip-node:last-child {
+            border-right: none;
+        }
+        .strip-node .tag {
+            font-family: 'Cairo', sans-serif;
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .strip-node .data-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 4px;
+        }
+        .strip-node .data-text.gold {
+            color: #ad8b56;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* ─── إعادة التوزيع المتقابل الجريء (The Asymmetric Grid) ─── */
+        .asymmetric-couple-grid {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .premium-profile-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        /* تفريد بصري لجانب الزوج بقوة الكحلي وجانب الزوجة بنعومة الذهب */
+        .premium-profile-card.husband {
+            border-right: 5px solid #800020;
+        }
+        .premium-profile-card.wife {
+            border-right: 5px solid #ad8b56;
+        }
+
+        .card-header-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .card-header-label .en-sub {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: #64748b;
+            font-weight: bold;
+        }
+        .card-header-label .ar-sub {
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* حقول البيانات بدون تكدس وبطابع رقمي ذكي */
+        .meta-field-item {
+            margin-bottom: 20px;
+        }
+        .meta-field-item:last-child {
+            margin-bottom: 0;
+        }
+        .meta-field-item .top-row-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .meta-field-item .top-row-labels .ar-l {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .meta-field-item .display-box-value {
+            background: #f8fafc;
+            border: 1px solid #edf2f7;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .meta-field-item .display-box-value.name-block {
+            text-align: right;
+        }
+        .display-box-value .ar-n {
+            font-family: 'Cairo', sans-serif;
+            font-size: 16.5px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .display-box-value .en-n {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 3px;
+            text-align: left;
+        }
+
+        /* كرت الولي الأفقي المطور */
+        .guardian-premium-card {
+            position: relative;
+            z-index: 10;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+        }
+        .guardian-grid-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        /* نظام التواقيع السحابية ثلاثية الأبعاد (Floating Signatures Ledger) */
+        .signatures-ledger-section {
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 35px;
+        }
+        .ledger-title {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .ledger-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .ledger-card-node {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: right;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            position: relative;
+        }
+        /* مؤشر التوثيق اللحظي الأخضر الصغير */
+        .ledger-card-node::before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+        }
+        .ledger-card-node .node-signer {
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 5px;
+        }
+        .ledger-card-node .node-role {
+            font-family: 'Cairo', sans-serif;
+            font-size: 12px;
+            color: #ad8b56;
+            font-weight: 600;
+            margin: 2px 0 4px 0;
+        }
+        .ledger-card-node .node-time {
+            font-size: 10.5px;
+            color: #94a3b8;
+        }
+
+        /* التذييل الفاخر المؤتمت */
+        .tamimi-footer {
+            position: relative;
+            z-index: 10;
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px dashed #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-clause {
+            width: 75%;
+        }
+        .footer-clause p {
+            margin: 2px 0;
+            font-size: 11.5px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .footer-clause p.ar-clause {
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px;
+            color: #334155;
+            direction: rtl;
+        }
+        
+        /* رمز الاستجابة السريعة الهندسي المطور */
+        .tamimi-qr-box {
+            width: 80px;
+            height: 80px;
+            background: #ffffff;
+            border: 2px solid #800020;
+            border-radius: 8px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            color: #800020;
+            box-shadow: 0 10px 20px rgba(128, 0, 32, 0.08);
+        }
+        .tamimi-qr-box span {
+            font-family: 'Cairo', sans-serif;
+            font-size: 9px;
+            color: #ad8b56;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tamimi-document">
+    
+    <!-- إطار الزينة الفاخر الداخلي -->
+    <div class="royal-border-frame"></div>
+
+    <!-- الترويسة الرسمية للبحرين -->
+    <header class="premium-header">
+        <div class="dept-title">
+            KINGDOM OF BAHRAIN<br>
+            Ministry of Justice, Islamic Affairs and Waqf
+        </div>
+        <div class="center-crest">
+            <img src="Bahrain-Embassy-Logo.jpg" alt="Bahrain Seal">
+        </div>
+        <div class="dept-title ar">
+            مملكة البحرين<br>
+            <strong>وزارة العدل والشؤون الإسلامية والأوقاف</strong>
+        </div>
+    </header>
+
+    <!-- عنوان العقد الفاخر -->
+    <div class="main-hero-title">
+        <h2>وثيقة عقد الزواج الرسمية</h2>
+        <p>Official Marriage Certificate</p>
+    </div>
+
+    <!-- شريط النظام الموحد السحابي لمعلومات المعاملة -->
+    <div class="cloud-status-strip">
+        <div class="strip-node">
+            <span class="tag">رقم الوثيقة / Doc ID</span>
+            <span class="data-text" style="letter-spacing: 0.5px;">20267</span>
+        </div>
+        <div class="strip-node">
+            <span class="tag">تاريخ القيد / Registration Date</span>
+            <span class="data-text" style="font-family: system-ui;">06/07/2026</span>
+        </div>
+        <div class="strip-node">
+            <span class="tag">الجهة القضائية / Authority</span>
+            <span class="data-text gold">المحاكم الشرعية السنية</span>
+        </div>
+    </div>
+
+    <!-- ─── قسم التوزيع التناظري الترند (الزوج يمين - الزوجة يسار) ─── -->
+    <div class="asymmetric-couple-grid">
+        
+        <!-- كرت بيانات الزوج الفاخر (يمين) -->
+        <div class="premium-profile-card husband">
+            <div class="card-header-label">
+                <span class="en-sub">Husband Part</span>
+                <span class="ar-sub">بيانات الزوج</span>
+            </div>
+            
+            <div class="meta-field-item">
+                <div class="top-row-labels">
+                    <span>Identity Card Number</span>
+                    <span class="ar-l">الرقم الشخصي</span>
+                </div>
+                <div class="display-box-value" style="letter-spacing: 1px; font-family: system-ui; color: #800020;">
+                    930307623
+                </div>
+            </div>
+
+            <div class="meta-field-item">
+                <div class="top-row-labels">
+                    <span>Full Name</span>
+                    <span class="ar-l">الاسم الكامل للزوج</span>
+                </div>
+                <div class="display-box-value name-block">
+                    <div class="ar-n">احمد عيسى علي جاسم البنجاسم</div>
+                    <div class="en-n">AHMED ISA ALI JASIM ALBENJASIM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- كرت بيانات الزوجة الفاخر (يسار) -->
+        <div class="premium-profile-card wife">
+            <div class="card-header-label">
+                <span class="en-sub">Wife Part</span>
+                <span class="ar-sub">بيانات الزوجة</span>
+            </div>
+            
+            <div class="meta-field-item">
+                <div class="top-row-labels">
+                    <span>Identity Card Number</span>
+                    <span class="ar-l">الرقم الشخصي</span>
+                </div>
+                <div class="display-box-value" style="letter-spacing: 1px; font-family: system-ui; color: #ad8b56;">
+                    970303688
+                </div>
+            </div>
+
+            <div class="meta-field-item">
+                <div class="top-row-labels">
+                    <span>Full Name</span>
+                    <span class="ar-l">الاسم الكامل للزوجة</span>
+                </div>
+                <div class="display-box-value name-block">
+                    <div class="ar-n">مريم وهيب محمد حسن حسين</div>
+                    <div class="en-n">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- كرت بيانات الولي المطور المدمج أفقياً -->
+    <div class="guardian-premium-card">
+        <div class="card-header-label" style="margin-bottom: 10px;">
+            <span class="en-sub">Guardian Information</span>
+            <span class="ar-sub" style="font-size: 16px;">بيانات ولي الزوجة</span>
+        </div>
+        
+        <div class="guardian-grid-row">
+            <div class="meta-field-item">
+                <div class="top-row-labels"><span>Full Name</span><span class="ar-l">الاسم الكامل للولي</span></div>
+                <div class="display-box-value name-block" style="padding: 10px 14px;">
+                    <div class="ar-n" style="font-size: 15px;">وهيب محمد حسن حسين</div>
+                    <div class="en-n" style="font-size: 10px;">WAHEEB MOHAMED HASAN HUSAIN</div>
+                </div>
+            </div>
+            <div class="meta-field-item">
+                <div class="top-row-labels"><span>ID Number</span><span class="ar-l">الرقم الشخصي</span></div>
+                <div class="display-box-value" style="padding: 15px 12px; font-family: system-ui; text-align: center; font-size: 14px;">
+                    650300033
+                </div>
+            </div>
+            <div class="meta-field-item">
+                <div class="top-row-labels"><span>Relationship</span><span class="ar-l">الصفة والقرابة</span></div>
+                <div class="display-box-value" style="padding: 15px 12px; text-align: center;">
+                    <span class="ar-n" style="font-size: 14.5px; color: #ad8b56;">أب / Father</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- سجل التواقيع والتوثيق المعتمد المتوازي -->
+    <div class="signatures-ledger-section">
+        <div class="ledger-title">سجل التواقيع الرقمية المشفرة لمعاملة الزواج العقدية</div>
+        
+        <div class="ledger-grid">
+            <div class="ledger-card-node">
+                <div class="node-signer">الشيخ عمر بن دعيج آل خليفه</div>
+                <div class="node-role">المأذون الشرعي للمملكة</div>
+                <div class="node-time">06-07-2026 10:55</div>
+            </div>
+            <div class="ledger-card-node">
+                <div class="node-signer">جنان جلال احمد عبيد</div>
+                <div class="node-role">قاضي المحكمة التوثيقية</div>
+                <div class="node-time">06-07-2026 11:17</div>
+            </div>
+            <div class="ledger-card-node">
+                <div class="node-signer">احمد عيسى علي البنجاسم</div>
+                <div class="node-role">الطرف الأول (الزوج)</div>
+                <div class="node-time">06-07-2026 10:55</div>
+            </div>
+            <div class="ledger-card-node">
+                <div class="node-signer">عيسى علي جاسم البنجاسم</div>
+                <div class="node-role">الشاهد المعتمد الأول</div>
+                <div class="node-time">06-07-2026 10:54</div>
+            </div>
+            <div class="ledger-card-node">
+                <div class="node-signer">وهيب محمد حسن حسين</div>
+                <div class="node-role">الولي الشرعي المصادق</div>
+                <div class="node-time">06-07-2026 10:55</div>
+            </div>
+            <div class="ledger-card-node">
+                <div class="node-signer">عيسى محمد عبدالله احمد</div>
+                <div class="node-role">الشاهد المعتمد الثاني</div>
+                <div class="node-time">06-07-2026 10:55</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل الأمني المتطور للبوابة الحكومية -->
+    <footer class="tamimi-footer">
+        <div class="footer-clause">
+            <p class="ar-clause">إن هذه الوثيقة صادرة ومعتمدة إلكترونياً بالكامل من أنظمة وزارة العدل والشؤون الإسلامية والأوقاف بمملكة البحرين دون الحاجة لختم يدوي.</p>
+            <p>This certificate is automatically generated and secured by the Ministry of Justice systems. Verification is fully integrated via QR data streams.</p>
+        </div>
+        <div class="tamimi-qr-box">
+            VERIFIED
+            <span>تدقيق آمن</span>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
