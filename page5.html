@@ -1,133 +1,641 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>نماذج وثائق الزواج</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <title>Kingdom of Bahrain - Premium Marriage Contract</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@600;800&display=swap');
+
         *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        body{
-            font-family:'Cairo',sans-serif;
-            background:linear-gradient(135deg,#f4f7fb,#dce9f8);
-            min-height: 100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding: 20px 12px;
+        body {
+            background-color: #0f1115; /* خلفية داكنة للعرض الرقمي الفخم - تتحول للأبيض عند الطباعة */
+            padding: 40px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-print-color-adjust: exact;
         }
 
-        .container {
-            background:#fff;
-            padding: 40px 30px;
-            border-radius:18px;
-            box-shadow:0 12px 30px rgba(0,0,0,.12);
-            text-align:center;
-            width:100%;
-            max-width:540px;
-            margin: auto;
+        /* حاوية الوثيقة المصممة على الطراز التميمي الحديث */
+        .tamimi-document {
+            max-width: 900px;
+            width: 100%;
+            background: #ffffff;
+            position: relative;
+            padding: 50px 40px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            border-radius: 4px; /* زوايا حادة رسمية */
+            overflow: hidden;
         }
 
-        h1{
-            color:#0b4f8a;
-            margin-bottom:30px;
-            font-size:26px;
+        /* الإطار التميمي الهندسي المزدوج بالفخامة البحرينية */
+        .tamimi-document::before {
+            content: "";
+            position: absolute;
+            top: 16px; bottom: 16px; left: 16px; right: 16px;
+            border: 1px solid #c5a880;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .tamimi-document::after {
+            content: "";
+            position: absolute;
+            top: 22px; bottom: 22px; left: 22px; right: 22px;
+            border: 2px solid #811322; /* الأحمر البحريني الملكي الدقيق */
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        /* زوايا الزخرفة التميمية (الأركان الأربعة للوثيقة) */
+        .corner-accent {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border: 3px solid #811322;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .top-left { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+        .top-right { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+        /* ترويسة سيادية فائقة التوازن */
+        .sovereign-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+            gap: 10px;
+        }
+        .gov-title-block {
+            width: 38%;
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .gov-title-block.ar {
+            text-align: right;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .gov-title-block.ar span {
+            font-family: 'Amiri', serif;
+            font-size: 17px;
+            color: #811322;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .royal-emblem-frame {
+            width: 24%;
+            text-align: center;
+        }
+        .royal-emblem-frame img {
+            width: 65px;
+            height: auto;
+        }
+
+        /* مصفوفة العنوان المركزي الترند */
+        .central-manifesto {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        .central-manifesto .badge-tag {
+            background: rgba(129, 19, 34, 0.06);
+            color: #811322;
+            font-family: 'Cairo', sans-serif;
+            padding: 4px 14px;
+            font-size: 11px;
             font-weight: 700;
-            line-height: 1.4;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .central-manifesto h1 {
+            margin: 0;
+            font-family: 'Amiri', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .central-manifesto p {
+            margin: 4px 0 0 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 12px;
+            color: #c5a880;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .buttons{
-            display:flex;
-            flex-direction:column;
-            gap:14px;
+        /* لوحة الأرقام والبيانات الأمنية الموحدة */
+        .secure-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 0;
+            margin-bottom: 35px;
+            gap: 10px;
+        }
+        .meta-cell {
+            text-align: center;
+            border-right: 1px solid #f1f5f9;
+        }
+        .meta-cell:last-child { border-right: none; }
+        .meta-cell .label {
+            font-family: 'Cairo', sans-serif;
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .meta-cell .value {
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 4px;
+        }
+        .meta-cell .value.highlight {
+            color: #811322;
+            font-family: 'Cairo', sans-serif;
         }
 
-        .btn{
-            display:block;
-            text-decoration:none;
-            background:#0b6db7;
-            color:#fff;
-            padding:15px 12px;
-            border-radius:10px;
-            font-size:18px;
-            font-weight:bold;
-            transition: all 0.2s ease-in-out;
-            box-shadow:0 4px 12px rgba(11, 109, 183, 0.2);
+        /* ─── مصفوفة العقد المتقاطعة ─── */
+        .contract-cross-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
         }
 
-        /* تأثيرات اللمس لسطح المكتب والأجهزة الذكية */
-        @media (hover: hover) {
-            .btn:hover{
-                background:#084d81;
-                transform:translateY(-2px);
-                box-shadow:0 6px 15px rgba(8, 77, 129, 0.3);
+        .matrix-card {
+            background: #ffffff;
+            border: 1px solid #e8edf3;
+            padding: 22px;
+            position: relative;
+        }
+        .matrix-card::before {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; right: 0;
+            width: 4px;
+            background: #811322;
+        }
+        .matrix-card.wife::before {
+            background: #c5a880;
+        }
+
+        .matrix-card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .matrix-card-title .ar-t {
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .matrix-card-title .en-t {
+            font-family: 'Playfair Display', serif;
+            font-size: 11.5px;
+            color: #c5a880;
+            font-style: italic;
+        }
+
+        .data-strip-row {
+            margin-bottom: 14px;
+        }
+        .data-strip-row:last-child { margin-bottom: 0; }
+        
+        .strip-labels {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cairo', sans-serif;
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+        .strip-value-box {
+            background: #fafbfc;
+            border: 1px solid #f1f5f9;
+            padding: 10px 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .strip-value-box .ar-name {
+            font-family: 'Cairo', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            text-align: right;
+        }
+        .strip-value-box .en-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 2px;
+            text-align: left;
+        }
+        .strip-value-box .identity-num {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        /* الولي مدمج بشكل عريض ممتد ليعطي توازناً بصرياً في المنتصف */
+        .center-guardian-anchor {
+            border: 1px solid #e8edf3;
+            background: #fafbfc;
+            padding: 20px;
+            margin-bottom: 35px;
+            border-right: 4px solid #0f172a;
+        }
+        .guardian-flex-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* نظام التواقيع المونوريل الخطّي الحركي */
+        .signatures-monorail {
+            border-top: 1px dashed #c5a880;
+            padding-top: 25px;
+            margin-bottom: 15px;
+        }
+        .monorail-title {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #811322;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+        .sig-linear-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .sig-linear-node {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            text-align: right;
+            position: relative;
+        }
+        .sig-linear-node .node-role {
+            font-family: 'Cairo', sans-serif;
+            font-size: 11px;
+            color: #c5a880;
+            font-weight: 700;
+        }
+        .sig-linear-node .node-name {
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 4px 0;
+        }
+        .sig-linear-node .node-stamp {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            color: #94a3b8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sig-linear-node .node-stamp::after {
+            content: "SECURED";
+            font-size: 8px;
+            font-weight: 900;
+            color: #16a34a;
+            background: #f0fdf4;
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        /* التذييل والأمن الرقمي المتكامل */
+        .tamimi-footer {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .verification-manifesto-text {
+            width: 80%;
+            font-family: 'Cairo', sans-serif;
+            font-size: 11.5px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .verification-manifesto-text p { margin: 0; }
+        .verification-manifesto-text strong { color: #811322; }
+
+        .blockchain-qr-frame {
+            width: 65px;
+            height: 65px;
+            border: 2px solid #811322;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            font-weight: 800;
+            color: #0f172a;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .blockchain-qr-frame span {
+            font-family: 'Cairo', sans-serif;
+            font-size: 8px;
+            color: #c5a880;
+        }
+
+        /* 📱 شاشات الهواتف والأجهزة الذكية المتجاوبة (Responsive Breakpoints) */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 5px;
             }
-        }
-
-        .btn:active{
-            transform:scale(.97);
-            opacity: 0.95;
-        }
-
-        /* تحسينات متناهية الصغر لشاشات الهواتف الضيقة جداً القديمة */
-        @media (max-width:375px){
-            .container {
-                padding: 30px 16px;
+            .tamimi-document {
+                padding: 35px 20px;
             }
-            h1 {
-                font-size: 22px;
-                margin-bottom: 24px;
+            .sovereign-header {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 15px;
+                margin-bottom: 25px;
             }
-            .btn {
-                font-size: 16px;
-                padding: 13px 10px;
+            .gov-title-block {
+                width: 100%;
+                text-align: center !0f172a;
             }
-            .buttons {
+            .gov-title-block.ar {
+                text-align: center;
+            }
+            .secure-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
+            .meta-cell {
+                border-right: none;
+                background: #fafbfc;
+                padding: 8px;
+                border: 1px solid #e2e8f0;
+            }
+            .contract-cross-matrix {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .guardian-flex-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .sig-linear-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .tamimi-footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .verification-manifesto-text {
+                width: 100%;
+            }
+            .verification-manifesto-text p {
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sig-linear-grid {
+                grid-template-columns: 1fr;
+            }
+            .central-manifesto h1 {
+                font-size: 28px;
+            }
+        }
+
+        /* تحسينات الطباعة لتبدو الورقة رسمية بيضاء تماماً عند طباعتها */
+        @media print {
+            body { background: #ffffff; padding: 0; }
+            .tamimi-document { box-shadow: none; padding: 40px 30px; }
+            .contract-cross-matrix { grid-template-columns: 1fr 1fr; }
+            .secure-meta-grid { grid-template-columns: repeat(4, 1fr); }
+            .guardian-flex-container { flex-direction: row; }
+            .sig-linear-grid { grid-template-columns: repeat(3, 1fr); }
+            .sovereign-header { flex-direction: row; }
+            .gov-title-block { width: 38%; }
+            .gov-title-block.ar { text-align: right; }
+            .tamimi-footer { flex-direction: row; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="tamimi-document">
+    
+    <div class="corner-accent top-left"></div>
+    <div class="corner-accent top-right"></div>
+    <div class="corner-accent bottom-left"></div>
+    <div class="corner-accent bottom-right"></div>
 
-    <h1>اختر نموذج وثيقة الزواج</h1>
+    <header class="sovereign-header">
+        <div class="gov-title-block" style="font-family: 'Inter', sans-serif;">
+            KINGDOM OF BAHRAIN<br>
+            Ministry of Justice, Islamic Affairs and Waqf
+        </div>
+        <div class="royal-emblem-frame">
+            <img src="Bahrain-Embassy-Logo.jpg" alt="Bahrain Emblem">
+        </div>
+        <div class="gov-title-block ar">
+            <span>مملكة البحرين</span>
+            وزارة العدل والشؤون الإسلامية والأوقاف
+        </div>
+    </header>
 
-    <div class="buttons">
+    <div class="central-manifesto">
+        <div class="badge-tag">وثيقة رسمية مصدقة</div>
+        <h1>عقد زواج شرعي</h1>
+        <p>Marriage Certificate</p>
+    </div>
 
-        <a href="page1.html" class="btn">
-            نموذج رقم 1 لوثيقة الزواج
-        </a>
+    <div class="secure-meta-grid">
+        <div class="meta-cell">
+            <div class="label">رقم الوثيقة / Doc No.</div>
+            <div class="value" style="color: #811322;">20267</div>
+        </div>
+        <div class="meta-cell">
+            <div class="label">تاريخ التسجيل / Date</div>
+            <div class="value">06/07/2026</div>
+        </div>
+        <div class="meta-cell">
+            <div class="label">نوع المعاملة / Type</div>
+            <div class="value highlight">قِران رقمي</div>
+        </div>
+        <div class="meta-cell">
+            <div class="label">الدائرة القضائية / Court</div>
+            <div class="value highlight" style="color: #0f172a;">المحكمة السنية</div>
+        </div>
+    </div>
 
-        <a href="page2.html" class="btn">
-            نموذج لوثيقة الزواج رقم 2
-        </a>
+    <div class="contract-cross-matrix">
+        
+        <div class="matrix-card husband">
+            <div class="matrix-card-title">
+                <span class="en-t">Husband's Profile</span>
+                <span class="ar-t">بيانات الزوج</span>
+            </div>
+            
+            <div class="data-strip-row">
+                <div class="strip-labels">
+                    <span>Full Name</span>
+                    <span>الاسم الكامل</span>
+                </div>
+                <div class="strip-value-box">
+                    <div class="ar-name">احمد عيسى علي جاسم البنجاسم</div>
+                    <div class="en-name">AHMED ISA ALI JASIM ALBENJASIM</div>
+                </div>
+            </div>
 
-        <a href="page3.html" class="btn">
-            نموذج لوثيقة الزواج رقم 3
-        </a>
+            <div class="data-strip-row">
+                <div class="strip-labels">
+                    <span>Identity Card No.</span>
+                    <span>الرقم الشخصي</span>
+                </div>
+                <div class="strip-value-box">
+                    <div class="identity-num">930307623</div>
+                </div>
+            </div>
+        </div>
 
-        <a href="page4.html" class="btn">
-            نموذج لوثيقة الزواج رقم 4
-        </a>
+        <div class="matrix-card wife">
+            <div class="matrix-card-title">
+                <span class="en-t">Wife's Profile</span>
+                <span class="ar-t">بيانات الزوجة</span>
+            </div>
+            
+            <div class="data-strip-row">
+                <div class="strip-labels">
+                    <span>Full Name</span>
+                    <span>الاسم الكامل</span>
+                </div>
+                <div class="strip-value-box">
+                    <div class="ar-name">مريم وهيب محمد حسن حسين</div>
+                    <div class="en-name">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
+                </div>
+            </div>
 
-        <a href="page5.html" class="btn">
-            نموذج لوثيقة الزواج رقم 5
-        </a>
+            <div class="data-strip-row">
+                <div class="strip-labels">
+                    <span>Identity Card No.</span>
+                    <span>الرقم الشخصي</span>
+                </div>
+                <div class="strip-value-box">
+                    <div class="identity-num">970303688</div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
+    <div class="center-guardian-anchor">
+        <div class="matrix-card-title" style="margin-bottom: 15px; border-bottom: 1px solid #e2e8f0;">
+            <span class="en-t">Legal Guardian</span>
+            <span class="ar-t" style="font-size: 15px;">بيانات ولي الأمر للزوجة</span>
+        </div>
+        <div class="guardian-flex-container">
+            <div style="flex: 2; width: 100%;">
+                <div class="strip-labels"><span>Full Name</span><span>الاسم الكامل للولي</span></div>
+                <div class="strip-value-box" style="padding: 7px 12px;">
+                    <div class="ar-name" style="font-size: 14px;">وهيب محمد حسن حسين</div>
+                    <div class="en-name" style="font-size: 10px;">WAHEEB MOHAMED HASAN HUSAIN</div>
+                </div>
+            </div>
+            <div style="flex: 1; width: 100%;">
+                <div class="strip-labels"><span>ID Number</span><span>الرقم الشخصي</span></div>
+                <div class="strip-value-box" style="padding: 11px; font-family:'Inter'; font-weight:700; text-align:center;">
+                    650300033
+                </div>
+            </div>
+            <div style="flex: 0.6; width: 100%;">
+                <div class="strip-labels"><span>Relation</span><span>القرابة</span></div>
+                <div class="strip-value-box" style="padding: 11px; text-align:center; font-family:'Cairo'; font-weight:700; color:#811322;">
+                    أب
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="signatures-monorail">
+        <div class="monorail-title">اعتماد التواقيع والتوثيق الرقمي السيادي</div>
+        
+        <div class="sig-linear-grid">
+            <div class="sig-linear-node">
+                <div class="node-role">المأذون الشرعي</div>
+                <div class="node-name">الشيخ عمر بن دعيج آل خليفه</div>
+                <div class="node-stamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-linear-node">
+                <div class="node-role">قاضي المحكمة المختص</div>
+                <div class="node-name">جنان جلال احمد عبيد</div>
+                <div class="node-stamp">06-07-2026 11:17</div>
+            </div>
+            <div class="sig-linear-node">
+                <div class="node-role">الزوج الأصيل</div>
+                <div class="node-name">احمد عيسى البنجاسم</div>
+                <div class="node-stamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-linear-node">
+                <div class="node-role">ولي الزوجة</div>
+                <div class="node-name">وهيب محمد حسن حسين</div>
+                <div class="node-stamp">06-07-2026 10:55</div>
+            </div>
+            <div class="sig-linear-node">
+                <div class="node-role">الشاهد الأول</div>
+                <div class="node-name">عيسى علي جاسم البنجاسم</div>
+                <div class="node-stamp">06-07-2026 10:54</div>
+            </div>
+            <div class="sig-linear-node">
+                <div class="node-role">الشاهد الثاني</div>
+                <div class="node-name">عيسى محمد عبدالله احمد</div>
+                <div class="node-stamp">06-07-2026 10:55</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="tamimi-footer">
+        <div class="verification-manifesto-text">
+            <p style="direction: rtl; text-align: right; margin-bottom: 2px;">صدرت هذه الوثيقة إلكترونياً وتُعد <strong>معتمدة رسمياً</strong> من وزارة العدل والشؤون الإسلامية والأوقاف بمملكة البحرين دون الحاجة لختم يدوي.</p>
+            <p style="text-align: left;">This document is digitally issued and legally binding under the regulations of the Ministry of Justice, Bahrain.</p>
+        </div>
+        <div class="blockchain-qr-frame">
+            DIGITAL
+            <span>VERIFY</span>
+        </div>
+    </footer>
+
 </div>
- 
+
 </body>
 </html>
