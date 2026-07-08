@@ -187,20 +187,32 @@
             color: #64748b;
         }
 
-        /* كرت الولي السفلي */
+        /* كرت الولي السفلي المطور لتساوي الارتفاعات والتوسيط الكامل - زوايا مربعة حادة */
         .full-width-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            border-radius: 0px; /* زوايا مربعة حادة للكرت الرئيسي */
             padding: 20px;
             margin-bottom: 40px;
         }
         .guardian-flex-row {
             display: flex;
+            align-items: stretch; /* يضمن تمدد جميع العناصر لتصبح بنفس الارتفاع */
             gap: 15px;
         }
         .guardian-flex-item {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        /* تعديل الحواف هنا للمربعات الداخلية للولي لتصبح حادة تماماً */
+        .guardian-flex-item .field-value-display {
+            flex: 1; /* يضمن ملء صندوق العرض لكامل الارتفاع المتاح تلقائياً */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border-radius: 0px; /* زوايا مربعة حادة للحقول الداخلية */
         }
 
         /* شبكة التواقيع الرقمية الحديثة */
@@ -256,30 +268,47 @@
             padding-top: 25px;
             border-top: 1px dashed #e2e8f0;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
         }
-        .footer-legal-notice {
-            width: 75%;
+        .footer-left-stamp {
+            display: flex;
+            align-items: center;
         }
-        .footer-legal-notice p {
-            margin: 3px 0;
-            font-size: 12px;
-            color: #64748b;
-            text-align: right;
+        .stamp-placeholder {
+            width: 128px; /* مقاس الختم ممتد بنسبة 50% */
+            height: 128px;
+            border-radius: 4px;
+            object-fit: contain;
+            display: block;
         }
-        .footer-legal-notice p.ar {
-            font-family: 'Cairo', sans-serif;
-            font-size: 13px;
-            color: #334155;
-        }
+        
+        /* مظهر محاذاة وتوسيط النصوص والرمز بالتطابق مع الصورة */
         .secure-qr-widget {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            gap: 4px;
+            gap: 12px;
+            max-width: 260px;
+        }
+        .qr-instruction-label {
+            width: 100%;
+        }
+        .qr-instruction-label .ar-text {
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .qr-instruction-label .en-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 12.5px;
+            color: #1e293b;
+            display: block;
+            line-height: 1.4;
         }
         .qr-placeholder {
             width: 85px;
@@ -288,35 +317,26 @@
             border-radius: 4px;
             background: #fff;
             padding: 4px;
-        }
-        .secure-qr-widget span {
-            font-family: 'Cairo', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            color: #9a7336;
+            box-sizing: border-box;
         }
     </style>
-    <!-- مكتبة توليد الـ QR كود ديناميكياً لتشغيل الرابط المباشر -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
 <div class="master-certificate">
     
-    <!-- الهيدر والترويسة الرسمية الممتدة بكامل عرض الصفحة -->
     <header class="gov-header">
         <div class="header-logo">
             <img src="moj-Logo.jpg" alt="Ministry Emblem Banner">
         </div>
     </header>
 
-    <!-- عنوان العقد المطور -->
     <div class="title-block">
         <h1 class="ar">وثيقة عقد الزواج</h1>
         <h1 class="en">Marriage Certificate</h1>
     </div>
 
-    <!-- شريط التوثيق العلوي السريع السلس -->
     <div class="compact-meta-strip">
         <div class="meta-box">
             <span class="lbl">الدائرة / Sector:</span>
@@ -332,10 +352,8 @@
         </div>
     </div>
 
-    <!-- قسم الزوج والزوجة المتقابلين أفقياً -->
     <div class="couple-grid">
         
-        <!-- كرت بيانات الزوج (على اليمين) -->
         <div class="side-block-card">
             <div class="block-title-bar">
                 <span class="title-ar">بيانات الزوج</span>
@@ -362,7 +380,6 @@
             </div>
         </div>
 
-        <!-- كرت بيانات الزوجة (على اليسار) -->
         <div class="side-block-card wife-side">
             <div class="block-title-bar">
                 <span class="title-ar">بيانات الزوجة</span>
@@ -391,44 +408,41 @@
 
     </div>
 
-    <!-- كرت بيانات الولي السفلي متناسق العرض والترتيب المطلوب من اليمين -->
     <div class="full-width-card">
         <div class="block-title-bar" style="margin-bottom: 12px;">
             <span class="title-ar">بيانات الولي</span>
             <span class="title-en">Guardian's Details</span>
         </div>
         <div class="guardian-flex-row">
-            <!-- 1. الاسم الكامل (يمين) -->
             <div class="guardian-flex-item" style="flex: 1.2;">
                 <div class="field-label-split"><span class="ar-lbl">الاسم الكامل / Full Name</span></div>
-                <div class="field-value-display" style="text-align: right; padding: 8px 12px;">
-                    <div class="name-ar" style="font-size: 15px;">وهيب محمد حسن حسين</div>
-                    <div class="name-en" style="text-align: left;">WAHEEB MOHAMED HASAN HUSAIN</div>
+                <div class="field-value-display">
+                    <div class="name-ar" style="font-size: 15px; margin: 0;">وهيب محمد حسن حسين</div>
+                    <div class="name-en" style="margin-top: 2px;">WAHEEB MOHAMED HASAN HUSAIN</div>
                 </div>
             </div>
-            <!-- 2. الرقم الشخصي (وسط) -->
-            <div class="guardian-flex-item">
+            <div class="guardian-flex-item" style="flex: 1;">
                 <div class="field-label-split"><span class="ar-lbl">الرقم الشخصي / Identity Number</span></div>
-                <div class="field-value-display" style="padding: 13px 10px; letter-spacing: 0.5px;">650300033</div>
+                <div class="field-value-display" style="letter-spacing: 0.5px;">650300033</div>
             </div>
-            <!-- 3. صلة القرابة (يسار) -->
-            <div class="guardian-flex-item" style="flex: 0.6;">
+            <div class="guardian-flex-item" style="flex: 0.8;">
                 <div class="field-label-split"><span class="ar-lbl">صلة القرابة / Relationship</span></div>
-                <div class="field-value-display" style="padding: 11px 10px;">
-                    <span class="name-ar" style="font-size:14px;">أب</span><span style="font-size: 11px; color:#64748b;"> / Father</span>
+                <div class="field-value-display">
+                    <div>
+                        <div class="name-ar" style="font-size:14px; margin-bottom: 2px;">أب</div>
+                        <div style="font-size: 11px; color:#64748b;">Father</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- شبكة التواقيع الإلكترونية الثلاثية المرتبة والمعدلة بالكامل -->
     <div class="sigs-wrapper">
         <div class="sigs-header-title">
             <span>تم التوقيع إلكترونياً وبشكل موثق بواسطة</span> &bull; Certified Electronic Signatures
         </div>
         
         <div class="sigs-matrix-3col">
-            <!-- الصف الأول من اليمين إلى اليسار -->
             <div class="sig-node-box">
                 <div class="s-name">احمد عيسى علي البنجاسم</div>
                 <div class="s-role">الزوج</div>
@@ -445,7 +459,6 @@
                 <div class="s-time">06-07-2026 10:55</div>
             </div>
 
-            <!-- الصف الثاني من اليمين إلى اليسار -->
             <div class="sig-node-box">
                 <div class="s-name">عيسى علي جاسم البنجاسم</div>
                 <div class="s-role">الشاهد الأول</div>
@@ -464,15 +477,17 @@
         </div>
     </div>
 
-    <!-- تذييل الصفحة المطور مع الـ QR النشط -->
     <footer class="footer-sec-bar">
         <div class="secure-qr-widget">
+            <div class="qr-instruction-label">
+                <span class="ar-text">امسح الرمز للتحقق من صحة المستند</span>
+                <span class="en-text">Scan the QR code to verify<br>the document’s authenticity</span>
+            </div>
             <div id="qrcode" class="qr-placeholder"></div>
-            <span>الرمز الرقمي SECURE QR</span>
         </div>
-        <div class="footer-legal-notice">
-            <p class="ar">يمكنك التحقق من صحة بيانات الوثيقة والتوقيع الإلكتروني بالمسح الضوئي لرمز QR.</p>
-            <p>Scan the QR code to verify the validity of the document data and digital signature.</p>
+        
+        <div class="footer-left-stamp">
+            <img src="stamp.jpg" alt="Official Stamp" class="stamp-placeholder">
         </div>
     </footer>
 
@@ -482,8 +497,8 @@
     // إنشاء الـ QR كود تلقائياً وربطه بالصفحة المطلوبة بدقة عالية
     new QRCode(document.getElementById("qrcode"), {
         text: "https://adnanhashimgm-hue.github.io/Bahrain.mar/page3.html",
-        width: 85,
-        height: 85,
+        width: 77, 
+        height: 77,
         colorDark : "#0f172a",
         colorLight : "#ffffff",
         correctLevel : QRCode.CorrectLevel.H
