@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>Marriage Certificate - Kingdom of Bahrain</title>
@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Cairo', 'Inter', 'Segoe UI', sans-serif;
             background-color: #f3f4f6;
             color: #1e293b;
             margin: 0;
@@ -39,34 +39,25 @@
             pointer-events: none;
         }
 
-        /* الهيدر الرسمي */
+        /* الهيدر الرسمي المعدل لعرض الشعار بكامل العرض */
         .gov-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 35px;
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 20px;
-        }
-        .header-column {
-            width: 38%;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #475569;
-        }
-        .header-column.ar {
-            text-align: right;
-            font-family: 'Cairo', sans-serif;
-            font-size: 14px;
-            color: #0f172a;
+            width: 100%;
         }
         .header-logo {
-            width: 24%;
+            width: 100%;
             text-align: center;
         }
         .header-logo img {
-            width: 75px;
+            width: 100%;
+            max-width: 100%;
             height: auto;
+            display: block;
         }
 
         /* قسم العنوان ووحة المعلومات */
@@ -92,7 +83,7 @@
             margin-top: 3px;
         }
 
-        /* شريط التوثيق العلوي السريع */
+        /* شريط التوثيق العلوي السريع السلس */
         .compact-meta-strip {
             display: flex;
             justify-content: space-between;
@@ -118,7 +109,7 @@
             color: #0f172a;
         }
 
-        /* ─── الشبكة الثنائية (الزوج على اليمين والزوجة على اليسار) ─── */
+        /* الشبكة الثنائية (الزوج على اليمين والزوجة على اليسار) */
         .couple-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -196,7 +187,7 @@
             color: #64748b;
         }
 
-        /* كرت الولي السفلي (يمتد على كامل العرض بشكل متناسق) */
+        /* كرت الولي السفلي */
         .full-width-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -238,33 +229,14 @@
             border: 1px solid #e2e8f0;
             background: #fafbfc;
             border-radius: 6px;
-            padding: 12px 15px;
+            padding: 15px 15px;
             text-align: right;
-            position: relative;
-        }
-        .sig-node-box::before {
-            content: "✓";
-            position: absolute;
-            top: 10px;
-            left: 12px;
-            color: #16a34a;
-            font-size: 11px;
-            font-weight: bold;
-            background: #f0fdf4;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #bbf7d0;
         }
         .sig-node-box .s-name {
             font-family: 'Cairo', sans-serif;
             font-size: 13.5px;
             font-weight: 700;
             color: #0f172a;
-            margin-top: 10px;
         }
         .sig-node-box .s-role {
             font-family: 'Cairo', sans-serif;
@@ -288,58 +260,53 @@
             justify-content: space-between;
         }
         .footer-legal-notice {
-            width: 80%;
+            width: 75%;
         }
         .footer-legal-notice p {
             margin: 3px 0;
             font-size: 12px;
             color: #64748b;
+            text-align: right;
         }
         .footer-legal-notice p.ar {
             font-family: 'Cairo', sans-serif;
             font-size: 13px;
             color: #334155;
-            direction: rtl;
         }
         .secure-qr-widget {
-            width: 75px;
-            height: 75px;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            background: #fff;
-            padding: 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 8.5px;
-            font-weight: 700;
-            color: #0f172a;
             text-align: center;
+            gap: 4px;
+        }
+        .qr-placeholder {
+            width: 85px;
+            height: 85px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            background: #fff;
+            padding: 4px;
         }
         .secure-qr-widget span {
             font-family: 'Cairo', sans-serif;
-            font-size: 9px;
+            font-size: 10px;
+            font-weight: 700;
             color: #9a7336;
         }
     </style>
+    <!-- مكتبة توليد الـ QR كود ديناميكياً لتشغيل الرابط المباشر -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
 <div class="master-certificate">
     
-    <!-- الهيدر والترويسة الرسمية -->
+    <!-- الهيدر والترويسة الرسمية الممتدة بكامل عرض الصفحة -->
     <header class="gov-header">
-        <div class="header-column">
-            KINGDOM OF BAHRAIN<br>
-            Ministry of Justice, Islamic Affairs and Waqf
-        </div>
         <div class="header-logo">
-            <img src="Bahrain-Embassy-Logo.jpg" alt="Bahrain Emblem">
-        </div>
-        <div class="header-column ar">
-            مملكة البحرين<br>
-            <strong>وزارة العدل والشؤون الإسلامية والأوقاف</strong>
+            <img src="moj-Logo.jpg" alt="Ministry Emblem Banner">
         </div>
     </header>
 
@@ -352,33 +319,32 @@
     <!-- شريط التوثيق العلوي السريع السلس -->
     <div class="compact-meta-strip">
         <div class="meta-box">
-            <span class="lbl">Doc No. / رقم الوثيقة:</span>
-            <span class="val" style="color: #0f172a;">20267</span>
+            <span class="lbl">الدائرة / Sector:</span>
+            <span class="val" style="color: #0f172a;">الدائرة السنية</span>
         </div>
         <div class="meta-box">
-            <span class="lbl">Date / تاريخ المعاملة:</span>
+            <span class="lbl">التاريخ / Date:</span>
             <span class="val">06/07/2026</span>
         </div>
         <div class="meta-box">
-            <span class="lbl">الدائرة / Sector:</span>
-            <span class="val" style="color: #16a34a;">الدائرة السنية ✓</span>
+            <span class="lbl">رقم الوثيقة / Doc No.:</span>
+            <span class="val" style="color: #0f172a;">20267</span>
         </div>
     </div>
 
-    <!-- ─── قسم الزوج والزوجة المتقابلين أفقياً ─── -->
+    <!-- قسم الزوج والزوجة المتقابلين أفقياً -->
     <div class="couple-grid">
         
-        <!-- كرت بيانات الزوج (على اليمين في العرض العربي / الأول بالترتيب) -->
+        <!-- كرت بيانات الزوج (على اليمين) -->
         <div class="side-block-card">
             <div class="block-title-bar">
-                <span class="title-en">Husband's Details</span>
                 <span class="title-ar">بيانات الزوج</span>
+                <span class="title-en">Husband's Details</span>
             </div>
             
             <div class="inner-field">
                 <div class="field-label-split">
-                    <span>Identity Number</span>
-                    <span class="ar-lbl">الرقم الشخصي</span>
+                    <span class="ar-lbl">الرقم الشخصي / Identity Number</span>
                 </div>
                 <div class="field-value-display" style="letter-spacing: 0.5px;">
                     930307623
@@ -387,27 +353,25 @@
 
             <div class="inner-field">
                 <div class="field-label-split">
-                    <span>Full Name</span>
-                    <span class="ar-lbl">الاسم الكامل</span>
+                    <span class="ar-lbl">الاسم الكامل / Full Name</span>
                 </div>
                 <div class="field-value-display">
-                    <div class="name-en">AHMED ISA ALI JASIM ALBENJASIM</div>
                     <div class="name-ar">احمد عيسى علي جاسم البنجاسم</div>
+                    <div class="name-en">AHMED ISA ALI JASIM ALBENJASIM</div>
                 </div>
             </div>
         </div>
 
-        <!-- كرت بيانات الزوجة (على اليسار في العرض العربي) -->
+        <!-- كرت بيانات الزوجة (على اليسار) -->
         <div class="side-block-card wife-side">
             <div class="block-title-bar">
-                <span class="title-en">Wife's Details</span>
                 <span class="title-ar">بيانات الزوجة</span>
+                <span class="title-en">Wife's Details</span>
             </div>
             
             <div class="inner-field">
                 <div class="field-label-split">
-                    <span>Identity Number</span>
-                    <span class="ar-lbl">الرقم الشخصي</span>
+                    <span class="ar-lbl">الرقم الشخصي / Identity Number</span>
                 </div>
                 <div class="field-value-display" style="letter-spacing: 0.5px;">
                     970303688
@@ -416,71 +380,59 @@
 
             <div class="inner-field">
                 <div class="field-label-split">
-                    <span>Full Name</span>
-                    <span class="ar-lbl">الاسم الكامل</span>
+                    <span class="ar-lbl">الاسم الكامل / Full Name</span>
                 </div>
                 <div class="field-value-display">
-                    <div class="name-en">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
                     <div class="name-ar">مريم وهيب محمد حسن حسين</div>
+                    <div class="name-en">MARYAM WAHEEB MOHAMED HASAN HUSAIN</div>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- كرت بيانات الولي السفلي متناسق العرض -->
+    <!-- كرت بيانات الولي السفلي متناسق العرض والترتيب المطلوب من اليمين -->
     <div class="full-width-card">
         <div class="block-title-bar" style="margin-bottom: 12px;">
-            <span class="title-en">Guardian's Details</span>
             <span class="title-ar">بيانات الولي</span>
+            <span class="title-en">Guardian's Details</span>
         </div>
         <div class="guardian-flex-row">
+            <!-- 1. الاسم الكامل (يمين) -->
             <div class="guardian-flex-item" style="flex: 1.2;">
-                <div class="field-label-split"><span>Full Name</span><span class="ar-lbl">الاسم الكامل</span></div>
+                <div class="field-label-split"><span class="ar-lbl">الاسم الكامل / Full Name</span></div>
                 <div class="field-value-display" style="text-align: right; padding: 8px 12px;">
-                    <div class="name-en" style="text-align: left;">WAHEEB MOHAMED HASAN HUSAIN</div>
                     <div class="name-ar" style="font-size: 15px;">وهيب محمد حسن حسين</div>
+                    <div class="name-en" style="text-align: left;">WAHEEB MOHAMED HASAN HUSAIN</div>
                 </div>
             </div>
+            <!-- 2. الرقم الشخصي (وسط) -->
             <div class="guardian-flex-item">
-                <div class="field-label-split"><span>Identity Number</span><span class="ar-lbl">الرقم الشخصي</span></div>
+                <div class="field-label-split"><span class="ar-lbl">الرقم الشخصي / Identity Number</span></div>
                 <div class="field-value-display" style="padding: 13px 10px; letter-spacing: 0.5px;">650300033</div>
             </div>
+            <!-- 3. صلة القرابة (يسار) -->
             <div class="guardian-flex-item" style="flex: 0.6;">
-                <div class="field-label-split"><span>Relationship</span><span class="ar-lbl">صلة القرابة</span></div>
+                <div class="field-label-split"><span class="ar-lbl">صلة القرابة / Relationship</span></div>
                 <div class="field-value-display" style="padding: 11px 10px;">
-                    <span style="font-size: 11px; color:#64748b;">Father / </span><span class="name-ar" style="font-size:14px;">أب</span>
+                    <span class="name-ar" style="font-size:14px;">أب</span><span style="font-size: 11px; color:#64748b;"> / Father</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- شبكة التواقيع الإلكترونية الثلاثية -->
+    <!-- شبكة التواقيع الإلكترونية الثلاثية المرتبة والمعدلة بالكامل -->
     <div class="sigs-wrapper">
         <div class="sigs-header-title">
             <span>تم التوقيع إلكترونياً وبشكل موثق بواسطة</span> &bull; Certified Electronic Signatures
         </div>
         
         <div class="sigs-matrix-3col">
-            <div class="sig-node-box">
-                <div class="s-name">الشيخ عمر بن دعيج آل خليفه</div>
-                <div class="s-role">المأذون الشرعي</div>
-                <div class="s-time">06-07-2026 10:55</div>
-            </div>
-            <div class="sig-node-box">
-                <div class="s-name">جنان جلال احمد عبيد</div>
-                <div class="s-role">قاضي المحكمة</div>
-                <div class="s-time">06-07-2026 11:17</div>
-            </div>
+            <!-- الصف الأول من اليمين إلى اليسار -->
             <div class="sig-node-box">
                 <div class="s-name">احمد عيسى علي البنجاسم</div>
                 <div class="s-role">الزوج</div>
                 <div class="s-time">06-07-2026 10:55</div>
-            </div>
-            <div class="sig-node-box">
-                <div class="s-name">عيسى علي جاسم البنجاسم</div>
-                <div class="s-role">الشاهد الأول</div>
-                <div class="s-time">06-07-2026 10:54</div>
             </div>
             <div class="sig-node-box">
                 <div class="s-name">وهيب محمد حسن حسين</div>
@@ -488,26 +440,55 @@
                 <div class="s-time">06-07-2026 10:55</div>
             </div>
             <div class="sig-node-box">
+                <div class="s-name">الشيخ عمر بن دعيج آل خليفه</div>
+                <div class="s-role">المأذون الشرعي</div>
+                <div class="s-time">06-07-2026 10:55</div>
+            </div>
+
+            <!-- الصف الثاني من اليمين إلى اليسار -->
+            <div class="sig-node-box">
+                <div class="s-name">عيسى علي جاسم البنجاسم</div>
+                <div class="s-role">الشاهد الأول</div>
+                <div class="s-time">06-07-2026 10:54</div>
+            </div>
+            <div class="sig-node-box">
                 <div class="s-name">عيسى محمد عبدالله احمد</div>
                 <div class="s-role">الشاهد الثاني</div>
                 <div class="s-time">06-07-2026 10:55</div>
             </div>
+            <div class="sig-node-box">
+                <div class="s-name">جنان جلال احمد عبيد</div>
+                <div class="s-role">قاضي المحكمة</div>
+                <div class="s-time">06-07-2026 11:17</div>
+            </div>
         </div>
     </div>
 
-    <!-- تذييل الصفحة المطور مع الـ QR -->
+    <!-- تذييل الصفحة المطور مع الـ QR النشط -->
     <footer class="footer-sec-bar">
+        <div class="secure-qr-widget">
+            <div id="qrcode" class="qr-placeholder"></div>
+            <span>الرمز الرقمي SECURE QR</span>
+        </div>
         <div class="footer-legal-notice">
             <p class="ar">يمكنك التحقق من صحة بيانات الوثيقة والتوقيع الإلكتروني بالمسح الضوئي لرمز QR.</p>
             <p>Scan the QR code to verify the validity of the document data and digital signature.</p>
         </div>
-        <div class="secure-qr-widget">
-            SECURE QR
-            <span>الرمز الرقمي</span>
-        </div>
     </footer>
 
 </div>
+
+<script>
+    // إنشاء الـ QR كود تلقائياً وربطه بالصفحة المطلوبة بدقة عالية
+    new QRCode(document.getElementById("qrcode"), {
+        text: "https://adnanhashimgm-hue.github.io/Bahrain.mar/page3.html",
+        width: 85,
+        height: 85,
+        colorDark : "#0f172a",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+</script>
 
 </body>
 </html>
